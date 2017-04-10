@@ -10,6 +10,7 @@ import ("fmt"
 	"os"
 )
 
+// tests
 // variable in package level scope, also in other files available
 var e = "package scope"
 
