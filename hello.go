@@ -11,8 +11,8 @@ import (
 	"strconv"
 )
 
-// tests 2222
-// new
+// test 11.04.2017
+
 // variable in package level scope, also in other files available
 var e = "package scope"
 
