@@ -4,10 +4,11 @@ import "fmt"
 
 type Person struct {
 	first string
-	last string
-	age int
+	last  string
+	age   int
 }
 
+// test 22
 func main() {
 	p1 := Person{"james", "bond", 20}
 	p2 := Person{"miss", "moneypenny", 18}
