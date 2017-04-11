@@ -8,6 +8,7 @@ type Person struct {
 	age int
 }
 
+// test
 func main() {
 	p1 := Person{"james", "bond", 20}
 	p2 := Person{"miss", "moneypenny", 18}
