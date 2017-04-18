@@ -6,9 +6,9 @@ import (
 )
 
 type Tree struct {
-	root *Node
-	count int
-	name string
+	root *Node	`json:"Node"`
+	count int	`json:"Count"`
+	name string	`json:"Name"`
 }
 
 func (t *Tree) addNode(n Node) {
