@@ -20,13 +20,11 @@ func (t *Tree) addNode(n Node) {
 	t.count++
 }
 
-
 type Node struct {
 	value int
 	leftChild *Node
 	rightChild *Node
 }
-
 
 func (parent *Node) addChildNode(newNode Node) {
 	switch {
