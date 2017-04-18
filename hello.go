@@ -1,16 +1,18 @@
 package main
 
-import ("fmt"
-	"github.com/ApolloTitanGolang/stringutil"
-	"io/ioutil"	// for the WebReader
-	"net/http"	// for the WebReader
-	"strconv"
-	"log"
+import (
 	"bufio"
+	"fmt"
+	"github.com/ApolloTitanGolang/stringutil"
+	"io/ioutil" // for the WebReader
+	"log"
+	"net/http" // for the WebReader
 	"os"
+	"strconv"
 )
 
-// tests
+// test 11.04.2017 / v2
+
 // variable in package level scope, also in other files available
 var e = "package scope"
 
@@ -59,7 +61,6 @@ func main() {
 	mapSample()
 	hashTabelSample()
 
-
 }
 
 /* ------------------------------------------------------------------
@@ -102,7 +103,6 @@ func scopeTutorial() {
 	// does not work: fmt.Println(b)
 }
 
-
 /* ------------------------------------------------------------------
 	Anonymous Function
 ------------------------------------------------------------------*/
@@ -137,7 +137,6 @@ func closerTutorial() {
 	fmt.Println(increment())
 }
 
-
 /* ------------------------------------------------------------------
 	Blank identifier
 	Read a html - page
@@ -151,7 +150,6 @@ func blankIdentifier() {
 	fmt.Printf("\n\n%s", page)
 }
 
-
 /* ------------------------------------------------------------------
 	memory address - pointers
 ------------------------------------------------------------------*/
@@ -159,26 +157,26 @@ func memoryAddress() {
 	a := 43
 
 	fmt.Printf("\n\n-------------------------------------")
-	fmt.Println("\n\na - ",a)
+	fmt.Println("\n\na - ", a)
 	// Location, where the value is stored
 	fmt.Println("a's memory address - ", &a)
 	fmt.Printf("value in dezimal: %d \n", &a)
 
 	// pointers
 	var b *int = &a // pointer to the location, b is a int pointer
-	fmt.Println(b)	// address of a
-	fmt.Println(*b)	// value of a - 43 - dereference - give me the value ...
+	fmt.Println(b)  // address of a
+	fmt.Println(*b) // value of a - 43 - dereference - give me the value ...
 
-	*b = 42 	// value change to 42
-	fmt.Println(a)	// value a changed
+	*b = 42        // value change to 42
+	fmt.Println(a) // value a changed
 }
 
 /* ------------------------------------------------------------------
 	call by reference??
 ------------------------------------------------------------------*/
 func zero(x *int) {
-	fmt.Println(x)	// x is the memory location
-	*x = 0		// dereference to set the value
+	fmt.Println(x) // x is the memory location
+	*x = 0         // dereference to set the value
 }
 
 func callZero() {
@@ -194,7 +192,7 @@ func callZero() {
 	remainder
 ------------------------------------------------------------------*/
 func remainder() {
-	x := 13 /3
+	x := 13 / 3
 	y := 13 % 3
 	z := 10 % 6
 
@@ -254,7 +252,6 @@ func loopForWithNoCondition() {
 	}
 }
 
-
 /* ------------------------------------------------------------------
 	Type RUNE is a alias for int32
 ------------------------------------------------------------------*/
@@ -278,8 +275,6 @@ func runeSample() {
 	fmt.Println(strconv.Itoa(123451))
 	fmt.Println([]byte(strconv.Itoa(123451)))
 
-
-
 	fmt.Printf("\n This is a rune-------------------------------------\n")
 	foo := 'H' // this is a rune
 	fmt.Println(foo)
@@ -297,13 +292,12 @@ func runeSample() {
 	}
 }
 
-
 /* ------------------------------------------------------------------
 	switch
 ------------------------------------------------------------------*/
 type contact struct {
 	greeting string
-	name string
+	name     string
 }
 
 func switchSample() {
@@ -311,7 +305,7 @@ func switchSample() {
 
 	hero := "Superwoman"
 
-	switch hero{
+	switch hero {
 	case "Batman":
 		fmt.Println("batman")
 	case "Superman", "Superwoman":
@@ -351,7 +345,7 @@ func switchOnType(hero interface{}) {
 /* ------------------------------------------------------------------
 	if, else if, else
 ------------------------------------------------------------------*/
-func ifSample(){
+func ifSample() {
 	fmt.Printf("\n if samples --------------------------------\n")
 
 	b := true
@@ -361,7 +355,6 @@ func ifSample(){
 		fmt.Println(food)
 	}
 }
-
 
 /* ------------------------------------------------------------------
 	user input
@@ -381,10 +374,10 @@ func userInputSample() {
 	fmt.Scan(&numberOne)
 	fmt.Print("Please enter a second number: ")
 	fmt.Scan(&numberTwo)
-	fmt.Println(numberOne, " / ", numberTwo, " = ", numberOne / numberTwo)
+	fmt.Println(numberOne, " / ", numberTwo, " = ", numberOne/numberTwo)
 
 	for i := 0; i < 20; i++ {
-		if i % 2 == 0 {
+		if i%2 == 0 {
 			fmt.Print("Jepp", i, " - ")
 		}
 	}
@@ -397,9 +390,9 @@ func exercise01() {
 	fmt.Printf("\n\n exercise 01 -------------------------------\n")
 	var sum int = 0
 	for i := 0; i <= 1000; i++ {
-		if i % 3 == 0 {
+		if i%3 == 0 {
 			sum = sum + i
-		} else if i % 5 == 0 {
+		} else if i%5 == 0 {
 			sum = sum + i
 		}
 	}
@@ -408,9 +401,9 @@ func exercise01() {
 	var sum2 int = 0
 	for i := 0; i < 1000; i++ {
 		switch {
-		case i % 3 == 0:
+		case i%3 == 0:
 			sum2 = sum2 + i
-		case i % 5 == 0:
+		case i%5 == 0:
 			sum2 = sum2 + i
 		}
 	}
@@ -418,14 +411,13 @@ func exercise01() {
 
 	var sum3 int = 0
 	for i := 0; i <= 1000; i++ {
-		if i % 3 == 0 || i % 5 == 0 {
+		if i%3 == 0 || i%5 == 0 {
 			sum3 = sum3 + i
 		}
 	}
 
 	fmt.Println("Sum3: ", sum3)
 }
-
 
 /* ------------------------------------------------------------------
 	functions, parameters, arguments
@@ -454,7 +446,6 @@ func greetWithTwoReturns(fname, lname string) (string, string) {
 	return fmt.Sprint(fname, lname), fmt.Sprint(lname, fname)
 }
 
-
 /* ------------------------------------------------------------------
 	functions,
 	- variadic parameters (...)
@@ -471,7 +462,7 @@ func functionVariadicSample() {
 }
 
 func average(sf ...float64) float64 {
-	total  := 0.0
+	total := 0.0
 	fmt.Println(sf)
 
 	for _, v := range sf {
@@ -503,7 +494,7 @@ func functionExpressionSample() {
 	// get a function with return-type func() string
 	greet := makeGreeterFunction()
 	fmt.Println(greet())
-	fmt.Printf("%T\n", greet )
+	fmt.Printf("%T\n", greet)
 }
 
 // return Type is a  "func() string"
@@ -527,7 +518,7 @@ func callbackFunctionSample() {
 
 	fmt.Printf("\n\n callback function 2----------------------\n")
 	visit([]int{1, 2, 3, 4, 5}, func(n int) {
-		n = n*n
+		n = n * n
 		fmt.Println(n)
 	})
 }
@@ -538,7 +529,6 @@ func visit(numbers []int, callback func(int)) {
 	}
 }
 
-
 /* ------------------------------------------------------------------
 	recursion
 ------------------------------------------------------------------*/
@@ -546,14 +536,13 @@ func factorial(x int) int {
 	if x == 0 {
 		return 1
 	}
-	return x * factorial(x - 1)
+	return x * factorial(x-1)
 }
 
 func recursionSample() {
 	fmt.Printf("\n\n recursion sample----------------------\n")
 	fmt.Println(factorial(4))
 }
-
 
 /* ------------------------------------------------------------------
 	defer
@@ -582,34 +571,33 @@ func World() {
 func callByValueSample() {
 	fmt.Printf("\n\n call by value sample------------------\n")
 	age := 44
-	fmt.Println(&age) 	// get the memory address. 0xc20809d938
+	fmt.Println(&age) // get the memory address. 0xc20809d938
 
-	changeMe(&age)		// pass the value (which is the address)
+	changeMe(&age) // pass the value (which is the address)
 
-	fmt.Println(&age) 	// 0xc20809d938
-	fmt.Println(age)	// 24
+	fmt.Println(&age) // 0xc20809d938
+	fmt.Println(age)  // 24
 
 	fmt.Printf("\n\n call by value sample (slice)------------\n")
 	m := make([]string, 1, 25)
-	fmt.Println(m)		// []
+	fmt.Println(m) // []
 	changeMySlice(m)
-	fmt.Println(m)		// [Ben]
+	fmt.Println(m) // [Ben]
 }
 
-func changeMe(z *int) { 	// get the pointer to an int (receive address which is storing an int)
-	fmt.Println(z)		// 0xc20809d938
-	fmt.Println(*z)		// 44 (operator "*" DEREFERENCE the address
+func changeMe(z *int) { // get the pointer to an int (receive address which is storing an int)
+	fmt.Println(z)  // 0xc20809d938
+	fmt.Println(*z) // 44 (operator "*" DEREFERENCE the address
 	*z = 24
-	fmt.Println(z)		// 0xc20809d938
-	fmt.Println(*z)		// 24
+	fmt.Println(z)  // 0xc20809d938
+	fmt.Println(*z) // 24
 }
 
 // slices, maps and channels are REFERENCE-Types
 func changeMySlice(z []string) {
 	z[0] = "Ben"
-	fmt.Println(z)		// [Ben]
+	fmt.Println(z) // [Ben]
 }
-
 
 /* ------------------------------------------------------------------
 	Problems
@@ -631,7 +619,7 @@ func probExercise1() {
 	// func expression version
 	x = 4
 	halfFunc := func(n int) (float64, bool) {
-		return float64(x) / 2, x % 2 == 0
+		return float64(x) / 2, x%2 == 0
 	}
 	a, b = halfFunc(x)
 	fmt.Printf("\nvalue: %v - half value: %v", x, a)
@@ -639,23 +627,21 @@ func probExercise1() {
 
 }
 
-func halfValue(x int) (float64, bool) {		// long version
+func halfValue(x int) (float64, bool) { // long version
 	var y float64
 	y = float64(x) / 2
 	z := false
 
-	if x % 2 == 0 {
+	if x%2 == 0 {
 		z = true
 	}
 
 	return y, z
 }
 
-
-func halfValue2(x int) (float64, bool) {	// short, better version
-	return float64(x) / 2, x % 2 == 0
+func halfValue2(x int) (float64, bool) { // short, better version
+	return float64(x) / 2, x%2 == 0
 }
-
 
 /* ------------------------------------------------------------------
 	Problems
@@ -663,12 +649,12 @@ func halfValue2(x int) (float64, bool) {	// short, better version
 ------------------------------------------------------------------*/
 func probExercise3() {
 	fmt.Printf("\n\n problem exercise 3------------------\n")
-	fmt.Println(findGreatestNumber(1, 2, 7, 90, 5, 91.4, 10))	// 91.4
-	fmt.Printf("%T\n", findGreatestNumber())			// float64
+	fmt.Println(findGreatestNumber(1, 2, 7, 90, 5, 91.4, 10)) // 91.4
+	fmt.Printf("%T\n", findGreatestNumber())                  // float64
 }
 
 func findGreatestNumber(args ...float64) float64 {
-	var greatestNumber float64					// slice of float64
+	var greatestNumber float64 // slice of float64
 	fmt.Printf("%T %v\n", args, args)
 
 	for _, n := range args {
@@ -699,7 +685,6 @@ func probExercise4() {
 	fmt.Println((true && false) || (false && true) || !(true || true))
 }
 
-
 /* ------------------------------------------------------------------
 	Problems
 	- Exercise 5 (function - different calls)?
@@ -711,7 +696,7 @@ func probExercise5() {
 	fmt.Println(foo(1, 2, 3))
 
 	aSlice := []int{1, 2, 3, 4}
-	fmt.Println(foo(aSlice...))		// get the slice values
+	fmt.Println(foo(aSlice...)) // get the slice values
 
 	fmt.Println(foo())
 }
@@ -719,7 +704,6 @@ func probExercise5() {
 func foo(n ...int) []int {
 	return n
 }
-
 
 /* ------------------------------------------------------------------
 	Arrays
@@ -731,12 +715,12 @@ func arraySample() {
 
 	// int
 	var y [58]int
-	fmt.Println(y)		// shows already 58 times 0
+	fmt.Println(y) // shows already 58 times 0
 	fmt.Println(len(y))
 	fmt.Println(y[42])
 
 	// strings
-	var x [58]string	// shows an empty array
+	var x [58]string // shows an empty array
 	fmt.Println(x)
 	fmt.Println(len(x))
 	fmt.Println(x[42])
@@ -762,18 +746,17 @@ func arraySample2() {
 	fmt.Println(x[42])
 
 	for i := 0; i < 25; i++ {
-		x[i] = i*2
+		x[i] = i * 2
 	}
 
 	for i, v := range x {
-		fmt.Printf("%v - %v - %T - %b\n", i, v, v, v)	// value, type, binary
+		fmt.Printf("%v - %v - %T - %b\n", i, v, v, v) // value, type, binary
 		// fmt.Printf("%v - %T - %b\n", i, i, i)
 		if i > 30 {
 			break
 		}
 	}
 }
-
 
 /* ------------------------------------------------------------------
 	Slice
@@ -786,11 +769,11 @@ func sliceSample() {
 	fmt.Printf("\n\n slice examples I---------------------\n")
 
 	// slice 1
-	mySlice := []string{"a", "b", "c", "g", "m", "z",}
+	mySlice := []string{"a", "b", "c", "g", "m", "z"}
 	fmt.Println(mySlice)
-	fmt.Println(mySlice[2:4])	// slicing a slice
-	fmt.Println(mySlice[2])		// slice index access
-	fmt.Println("myString: "[2])	// string index access
+	fmt.Println(mySlice[2:4])    // slicing a slice
+	fmt.Println(mySlice[2])      // slice index access
+	fmt.Println("myString: "[2]) // string index access
 
 	// slice 2
 	// sice of 5, in use 10 (dynamic range up to 5)
@@ -798,12 +781,12 @@ func sliceSample() {
 	mySlice2 := make([]int, 0, 5)
 	fmt.Println("---------------------")
 	fmt.Println(mySlice2)
-	fmt.Println(len(mySlice2))		// what is in the slice: 0
-	fmt.Println(cap(mySlice2))		// what is the capacity: 5
+	fmt.Println(len(mySlice2)) // what is in the slice: 0
+	fmt.Println(cap(mySlice2)) // what is the capacity: 5
 	fmt.Println("---------------------")
 
 	// slice 3
-	mySlice3 := []string {
+	mySlice3 := []string{
 		"Good morning",
 		"Bonjour",
 		"Hallo!",
@@ -821,25 +804,22 @@ func sliceSample() {
 	mySlice4 = append(mySlice4, "Hallo")
 	mySlice4 = append(mySlice4, "Bonjour")
 
-
 	for i, entry := range mySlice4 {
 		fmt.Println(i, entry)
 	}
 	fmt.Println("---------------------")
 
-
 	// 2D slice (dynamic)
 	twoD := make([][]int, 3)
-	for i:= 0; i < 3; i++ {
+	for i := 0; i < 3; i++ {
 		innerLen := i + 1
-		twoD[i] = make([]int, innerLen)		// create a dynamic size-slice
+		twoD[i] = make([]int, innerLen) // create a dynamic size-slice
 		for j := 0; j < innerLen; j++ {
 			twoD[i][j] = i + j
 		}
 	}
 	fmt.Println("2d: ", twoD)
 }
-
 
 /* ------------------------------------------------------------------
 	Map
@@ -851,23 +831,23 @@ func sliceSample() {
 func mapSample() {
 	fmt.Printf("\n\n map examples ---------------------\n")
 
-	m := make(map[string]int)	// create a map where key is a string and value is an int
+	m := make(map[string]int) // create a map where key is a string and value is an int
 	m["k1"] = 6
 	m["k2"] = 12
 	m["k3"] = 24
 	m["k4"] = 48
 
 	fmt.Println("len: ", len(m))
-	delete(m, "k2")			// delete the value 12 (key: k2)
+	delete(m, "k2") // delete the value 12 (key: k2)
 	fmt.Println("len: ", len(m))
 	fmt.Println("map ", m)
 
-	_, valueThere := m["k2"]	// ignore the value itself with a blank identifier
+	_, valueThere := m["k2"] // ignore the value itself with a blank identifier
 	fmt.Println("is the value here? ", valueThere)
 
 	// var myGreeting = make(map[string]string)	// works
 	// myGreeting := map[string]string {}		// works too
-	var myGreeting = map[string]string {}		// works too
+	var myGreeting = map[string]string{} // works too
 	myGreeting["Tim"] = "God morning"
 	myGreeting["Jenny"] = "Bonjour"
 	myGreeting["Tom"] = "Bongiorno"
@@ -882,13 +862,11 @@ func mapSample() {
 		fmt.Printf("val: %v exists: %v", val, exists)
 	}
 
-
 	// range loop
 	for key, val := range myGreeting {
 		fmt.Printf("\nkey: %v, val: %v - ", key, val)
 	}
 }
-
 
 func hashTabelSample() {
 	fmt.Printf("\n\n hashtabel examples ---------------------\n")
